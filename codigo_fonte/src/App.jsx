@@ -26,15 +26,32 @@ const fadeIn = {
   transition: { duration: 0.6 }
 };
 
+const sliderOptions = {
+  loop: true,
+  mode: "snap",
+  slides: { perView: 3, spacing: 10 }, // Padrão: 3 slides por vez
+  breakpoints: {
+    "(max-width: 1024px)": { slides: { perView: 2, spacing: 10 } }, // 2 projetos em telas médias
+    "(max-width: 768px)": { slides: { perView: 1, spacing: 10 } },  // 1 projeto em telas pequenas
+  },
+};
+
 const App = () => {
   const { toast } = useToast();
+  const [sliderRef, instanceRef] = useKeenSlider(sliderOptions);
 
-    // Inicialize o slider do Keen Slider
-    const [sliderRef, slider] = useKeenSlider({
-      loop: true,
-      slides: { perView: 3 },
-      slidesToScroll: 1,
-    });
+  const handlePrev = () => {
+    if (instanceRef.current) {
+      instanceRef.current.prev();
+    }
+  };
+  
+  const handleNext = () => {
+    if (instanceRef.current) {
+      instanceRef.current.next();
+    }
+  };
+  
 
   const handleContact = (type) => {
     let message = "";
@@ -182,7 +199,7 @@ const App = () => {
                       <Database className="text-green-500 mb-4 h-8 w-8" />
                       <h3 className="text-xl font-semibold mb-4">Backend</h3>
                       <div className="flex flex-wrap">
-                        <span className="skill-tag">C# (.NET)</span>
+                        <span className="skill-tag">C# (ASP.NET)</span>
                         <span className="skill-tag">PHP</span>
                         <span className="skill-tag">Node.js</span>
                       </div>
@@ -191,8 +208,10 @@ const App = () => {
                       <Code2 className="text-green-500 mb-4 h-8 w-8" />
                       <h3 className="text-xl font-semibold mb-4">Frontend</h3>
                       <div className="flex flex-wrap">
+                        <span className="skill-tag">HTML</span>
+                        <span className="skill-tag">CSS</span>
+                        <span className="skill-tag">JavaScript</span>
                         <span className="skill-tag">React</span>
-                        <span className="skill-tag">Tailwind</span>
                         <span className="skill-tag">Flutter</span>
                       </div>
                     </div>
@@ -218,120 +237,143 @@ const App = () => {
             <h2 className="text-3xl font-bold mb-12 text-center gradient-text">
               Projetos
             </h2>
-            <div ref={sliderRef} className="keen-slider">
-
-              {/* Projeto 1 */}
-              <div className="keen-slider__slide pl-4 flex justify-center">
-              <div className="relative group overflow-hidden w-[400px] h-[250px]">
-                  <img
-                    src="/images/calculadora.png" 
-                    alt="Calculadora de Horas"
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Overlay que aparece no hover */}
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex flex-col items-center justify-center">
-                    <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
-                      Calculadora de Horas
-                    </h3>
-                    <a
-                      href="https://calculadora-de-horas.rennan-alves.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 bg-green-600 text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-green-700"
-                    >
-                      Acessar
-                    </a>
-                  </div>
+            <div ref={sliderRef} className="keen-slider" {...sliderOptions} >
+              
+            {/* Projeto 1 */}
+            <div className="keen-slider__slide flex justify-center">
+              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
+                <img
+                  src="/images/calculadora.png" 
+                  alt="Calculadora de Horas"
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay que aparece no hover */}
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
+                  <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+                    Calculadora de Horas
+                  </h3>
+                  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
+                    Ferramenta para calcular e gerenciar horas de forma eficiente.
+                  </p>
+                  <a
+                    href="https://calculadora-de-horas.rennan-alves.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 bg-green-600 text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-green-700"
+                  >
+                    Acessar
+                  </a>
                 </div>
               </div>
+            </div>
 
-              {/* Projeto 2 */}
-              <div className="keen-slider__slide pl-4 flex justify-center">
-                <div className="relative group overflow-hidden w-[400px] h-[250px]">
-                  <img
-                    src="/images/projeto_dois.png" 
-                    alt="BookIt"
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Overlay que aparece no hover */}
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex flex-col items-center justify-center">
-                    <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
-                      BookIt
-                    </h3>
-                    <a
-                      href="https://github.com/rennan-dev/BookIt/tree/Teste"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 bg-green-600 text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-green-700"
-                    >
-                      Acessar
-                    </a>
-                  </div>
+            {/* Projeto 2 */}
+            <div className="keen-slider__slide flex justify-center">
+              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
+                <img
+                  src="/images/projeto_tres.png" 
+                  alt="Berserk Tasks"
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay que aparece no hover */}
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
+                  <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+                    Berserk Tasks
+                  </h3>
+                  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
+                    To do list para gerenciamento de tarefas.
+                  </p>
+                  <a
+                    href="https://berserk-tasks.rennan-alves.com/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 bg-green-600 text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-green-700"
+                  >
+                    Acessar
+                  </a>
                 </div>
               </div>
+            </div>
 
-              {/* Projeto 3 */}
-              <div className="keen-slider__slide pl-4 flex justify-center">
-                <div className="relative group overflow-hidden w-[400px] h-[250px]">
-                  <img
-                    src="/images/projeto_tres.png" 
-                    alt="Ordem de Serviço"
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Overlay que aparece no hover */}
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex flex-col items-center justify-center">
-                    <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
-                      Ordem de Serviço
-                    </h3>
-                    <a
-                      href="https://github.com/rennan-dev/ordem_de_servico_api"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 bg-green-600 text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-green-700"
-                    >
-                      Acessar
-                    </a>
-                  </div>
+            {/* Projeto 3 */}
+            <div className="keen-slider__slide flex justify-center">
+              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
+                <img
+                  src="/images/projeto_dois.png" 
+                  alt="BookIt"
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay que aparece no hover */}
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
+                  <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+                    BookIt
+                  </h3>
+                  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
+                    Gerenciamento de ambientes.
+                  </p>
+                  <a
+                    href="https://github.com/rennan-dev/BookIt/tree/Teste"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 bg-green-600 text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-green-700"
+                  >
+                    Acessar
+                  </a>
                 </div>
               </div>
+            </div>
 
-
-              {/* Projeto 4 */}
-              <div className="keen-slider__slide pl-4">
-                <div className="project-card h-full bg-white flex items-center justify-center shadow-2xl">
-                  <p className="text-xl font-bold">Projeto a ser adicionado</p>
+            {/* Projeto 4 */}
+            <div className="keen-slider__slide flex justify-center">
+              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
+                {/* Overlay que aparece no hover */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                  <h3 className="text-xl font-bold">
+                  Projeto a ser adicionado
+                  </h3>
                 </div>
               </div>
+            </div>
 
-              {/* Projeto 5 */}
-              <div className="keen-slider__slide pl-4">
-                <div className="project-card h-full bg-white flex items-center justify-center shadow-2xl">
-                  <p className="text-xl font-bold">Projeto a ser adicionado</p>
+            {/* Projeto 5 */}
+            <div className="keen-slider__slide flex justify-center">
+              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
+                {/* Overlay que aparece no hover */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                  <h3 className="text-xl font-bold">
+                  Projeto a ser adicionado
+                  </h3>
                 </div>
               </div>
+            </div>
 
-
-              {/* Projeto 6 */}
-              <div className="keen-slider__slide pl-4">
-                <div className="project-card h-full bg-white flex items-center justify-center shadow-2xl">
-                  <p className="text-xl font-bold">Projeto a ser adicionado</p>
+            {/* Projeto 6 */}
+            <div className="keen-slider__slide flex justify-center">
+              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
+                {/* Overlay que aparece no hover */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                  <h3 className="text-xl font-bold">
+                  Projeto a ser adicionado
+                  </h3>
                 </div>
               </div>
-        
             </div>
 
             <button
-              onClick={() => slider.current?.prev()}
+              onClick={handlePrev} variant="outline"
               className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full"
             >
               <ArrowLeft size={24} />
             </button>
             <button
-              onClick={() => slider.current?.next()}
+               onClick={handleNext} variant="outline"
               className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full"
             >
               <ArrowRight size={24} />
             </button>
+          </div>
+
+            
           </div>
         </div>
       </section>
