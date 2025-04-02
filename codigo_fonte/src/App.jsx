@@ -243,26 +243,36 @@ const App = () => {
             <div className="keen-slider__slide flex justify-center">
               <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
                 <img
-                  src="/images/calculadora.png" 
+                  src="/images/calculadora.png"
                   alt="Calculadora de Horas"
                   className="w-full h-full object-cover"
                 />
                 {/* Overlay que aparece no hover */}
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
                   <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
-                    Calculadora de Horas
+                  Calculadora de Horas
                   </h3>
                   <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
-                    Ferramenta para calcular e gerenciar horas de forma eficiente.
+                  Ferramenta para calcular e gerenciar horas de forma eficiente, feita com JavaScript.
                   </p>
-                  <a
-                    href="https://calculadora-de-horas.rennan-alves.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 bg-green-600 text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-green-700"
-                  >
-                    Acessar
-                  </a>
+                  <div className="flex gap-4 mt-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                    <a
+                      href="https://calculadora-de-horas.rennan-alves.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                    >
+                      Acessar
+                    </a>
+                    <a
+                      href="https://github.com/rennan-dev/calculadora-de-horas"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700"
+                    >
+                      GitHub
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -281,7 +291,7 @@ const App = () => {
                     Berserk Tasks
                   </h3>
                   <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
-                    To do list para gerenciamento de tarefas.
+                    To do list para gerenciamento de tarefas feito com React, PHP e MySQL.
                   </p>
                   <a
                     href="https://berserk-tasks.rennan-alves.com/login"
@@ -299,26 +309,36 @@ const App = () => {
             <div className="keen-slider__slide flex justify-center">
               <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
                 <img
-                  src="/images/projeto_dois.png" 
-                  alt="BookIt"
+                  src="/images/projeto_quatro.png"
+                  alt="Dama"
                   className="w-full h-full object-cover"
                 />
                 {/* Overlay que aparece no hover */}
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
                   <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
-                    BookIt
+                    Dama
                   </h3>
                   <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
-                    Gerenciamento de ambientes.
+                    Jogo da dama feito em JavaScript
                   </p>
-                  <a
-                    href="https://github.com/rennan-dev/BookIt/tree/Teste"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 bg-green-600 text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-green-700"
-                  >
-                    Acessar
-                  </a>
+                  <div className="flex gap-4 mt-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                    <a
+                      href="https://dama.rennan-alves.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                    >
+                      Acessar
+                    </a>
+                    <a
+                      href="https://github.com/rennan-dev/dama"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700"
+                    >
+                      GitHub
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -326,11 +346,29 @@ const App = () => {
             {/* Projeto 4 */}
             <div className="keen-slider__slide flex justify-center">
               <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
+                <img
+                  src="/images/projeto_dois.png"
+                  alt="BookIt"
+                  className="w-full h-full object-cover"
+                />
                 {/* Overlay que aparece no hover */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                  <h3 className="text-xl font-bold">
-                  Projeto a ser adicionado
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
+                  <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+                  BookIt
                   </h3>
+                  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
+                  Gerenciamento de ambientes, feito com C#, React, MySQL e Docker.
+                  </p>
+                  <div className="flex gap-4 mt-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                    <a
+                      href="https://github.com/rennan-dev/BookIt/tree/Teste"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700"
+                    >
+                      GitHub
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
