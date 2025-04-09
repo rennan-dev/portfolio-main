@@ -243,7 +243,46 @@ const App = () => {
             <div className="keen-slider__slide flex justify-center">
               <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
                 <img
-                  src="/images/calculadora.png"
+                  src="/images/projeto_um.png"
+                  alt="Finanças Pessoais"
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay que aparece no hover */}
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
+                  <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+                  Finanças Pessoais
+                  </h3>
+                  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
+                  Web app para controle financeiro com registro de compras no débito e crédito, e dashboard para monitoramento de gastos mensais.
+                  Feito com PHP, React e MySQL
+                  </p>
+                  <div className="flex gap-4 mt-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                    <a
+                      href="https://financas.rennan-alves.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                    >
+                      Acessar
+                    </a>
+                    <a
+                      href="https://github.com/rennan-dev/financas"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700"
+                    >
+                      GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Projeto 2 */}
+            <div className="keen-slider__slide flex justify-center">
+              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
+                <img
+                  src="/images/projeto_dois.png"
                   alt="Calculadora de Horas"
                   className="w-full h-full object-cover"
                 />
@@ -277,7 +316,7 @@ const App = () => {
               </div>
             </div>
 
-            {/* Projeto 2 */}
+            {/* Projeto 3 */}
             <div className="keen-slider__slide flex justify-center">
               <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
                 <img
@@ -305,11 +344,41 @@ const App = () => {
               </div>
             </div>
 
-            {/* Projeto 3 */}
+            {/* Projeto 4 */}
             <div className="keen-slider__slide flex justify-center">
               <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
                 <img
                   src="/images/projeto_quatro.png"
+                  alt="BookIt"
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay que aparece no hover */}
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
+                  <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+                  BookIt
+                  </h3>
+                  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
+                  Gerenciamento de ambientes, feito com C#, React, MySQL e Docker.
+                  </p>
+                  <div className="flex gap-4 mt-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                    <a
+                      href="https://github.com/rennan-dev/BookIt/tree/Teste"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700"
+                    >
+                      GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Projeto 5 */}
+            <div className="keen-slider__slide flex justify-center">
+              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
+                <img
+                  src="/images/projeto_cinco.png"
                   alt="Dama"
                   className="w-full h-full object-cover"
                 />
@@ -339,48 +408,6 @@ const App = () => {
                       GitHub
                     </a>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Projeto 4 */}
-            <div className="keen-slider__slide flex justify-center">
-              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
-                <img
-                  src="/images/projeto_dois.png"
-                  alt="BookIt"
-                  className="w-full h-full object-cover"
-                />
-                {/* Overlay que aparece no hover */}
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
-                  <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
-                  BookIt
-                  </h3>
-                  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
-                  Gerenciamento de ambientes, feito com C#, React, MySQL e Docker.
-                  </p>
-                  <div className="flex gap-4 mt-4 opacity-0 group-hover:opacity-100 transition duration-300">
-                    <a
-                      href="https://github.com/rennan-dev/BookIt/tree/Teste"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700"
-                    >
-                      GitHub
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Projeto 5 */}
-            <div className="keen-slider__slide flex justify-center">
-              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
-                {/* Overlay que aparece no hover */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                  <h3 className="text-xl font-bold">
-                  Projeto a ser adicionado
-                  </h3>
                 </div>
               </div>
             </div>
