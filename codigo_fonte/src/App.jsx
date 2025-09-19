@@ -17,7 +17,8 @@ import {
   Gamepad2,
   Heart,
   ArrowLeft, 
-  ArrowRight
+  ArrowRight,
+  Trophy
 } from "lucide-react";
 
 const fadeIn = {
@@ -158,7 +159,7 @@ const App = () => {
             </div>
             <div>
             <p className="text-gray-600 mb-4">
-              Estudante de Engenharia de Software na UFAM, atualmente no 7º período. 
+              Estudante de Engenharia de Software na UFAM, atualmente no 8º período de nove. 
               Possuo experiência como estagiário em desenvolvimento de software, 
               onde trabalho com tecnologias modernas para criar soluções eficientes.
             </p>
@@ -175,6 +176,10 @@ const App = () => {
               <div className="flex items-center gap-2">
                 <Heart className="text-green-500" />
                 <span>Animes</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Trophy className="text-green-500" />
+                <span>Esportes</span>
               </div>
             </div>
             </div>
@@ -202,6 +207,8 @@ const App = () => {
                         <span className="skill-tag">C# (ASP.NET)</span>
                         <span className="skill-tag">PHP</span>
                         <span className="skill-tag">Node.js</span>
+                        <span className="skill-tag">Typescript</span>
+                        <span className="skill-tag">Python</span>
                       </div>
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -213,6 +220,8 @@ const App = () => {
                         <span className="skill-tag">JavaScript</span>
                         <span className="skill-tag">React</span>
                         <span className="skill-tag">Flutter</span>
+                        <span className="skill-tag">Typescript</span>
+                        <span className="skill-tag">Handlebars</span>
                       </div>
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -222,6 +231,10 @@ const App = () => {
                         <span className="skill-tag">MySQL</span>
                         <span className="skill-tag">PostgreSQL</span>
                         <span className="skill-tag">Supabase</span>
+                        <span className="skill-tag">Databricks</span>
+                        <span className="skill-tag">Docker</span>
+                        <span className="skill-tag">Prisma</span>
+                        <span className="skill-tag">n8n</span>
                       </div>
                     </div>
                   </div>
