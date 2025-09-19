@@ -43,6 +43,7 @@ A interface do portfólio foi construída com foco em clareza e organização. O
 ```bash
 https://github.com/rennan-dev/portfolio-main.git
 cd portfolio-main
+cd codigo_fonte
 ```
 
 2. Instale as dependências:
