@@ -428,6 +428,36 @@ const App = () => {
             {/* Projeto 6 */}
             <div className="keen-slider__slide flex justify-center">
               <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
+                <img
+                  src="/images/projeto_seis.png"
+                  alt="Telegram"
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay que aparece no hover */}
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
+                  <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+                    Automação Telegram
+                  </h3>
+                  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
+                    Automação para Finanças para um bot do telegram
+                  </p>
+                  <div className="flex gap-4 mt-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                    <a
+                      href="https://automacao.rennan-alves.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                    >
+                      Acessar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Projeto 7 */}
+            <div className="keen-slider__slide flex justify-center">
+              <div className="relative group overflow-hidden w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] border-2 border-gray-800 shadow-md rounded-lg">
                 {/* Overlay que aparece no hover */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
                   <h3 className="text-xl font-bold">
