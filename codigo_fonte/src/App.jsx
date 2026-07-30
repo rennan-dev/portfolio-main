@@ -12,12 +12,14 @@ import {
   Mail, 
   Instagram,
   Database,
+  ScanFace,
   Code2,
   Server,
   Gamepad2,
   Heart,
   ArrowLeft, 
   ArrowRight,
+  CloudCog,
   Trophy
 } from "lucide-react";
 
@@ -159,14 +161,12 @@ const App = () => {
             </div>
             <div>
             <p className="text-gray-600 mb-4">
-              Estudante de Engenharia de Software na UFAM, atualmente no 8º período de nove. 
-              Possuo experiência como estagiário em desenvolvimento de software, 
-              onde trabalho com tecnologias modernas para criar soluções eficientes.
+              Engenheiro de Software formado pela UFAM, atuando como Trainee Digital no desenvolvimento de soluções que combinam Visão Computacional, Inteligência Artificial, automação e desenvolvimento de software.
             </p>
+
             <p className="text-gray-600 mb-6">
-              Além do desenvolvimento, sou entusiasta de jogos e ocasionalmente 
-              desenvolvo projetos na Unity. Também gosto de praticar esportes ao ar livre 
-              e assistir animes nas horas vagas.
+              Tenho experiência no desenvolvimento de aplicações web utilizando Laravel e React, além do desenvolvimento de soluções de Visão Computacional com Python, YOLO e OpenCV. 
+              Também atuo com automação de processos e tenho experiência no desenvolvimento de projetos utilizando Unity e Godot.
             </p>
             <div className="flex gap-4">
               <div className="flex items-center gap-2">
@@ -201,11 +201,26 @@ const App = () => {
                   <h2 className="text-3xl font-bold mb-12 text-center">Habilidades</h2>
                   <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                     <div className="bg-white p-6 rounded-lg shadow-lg">
+                      <ScanFace className="text-green-500 mb-4 h-8 w-8" />
+                      <h3 className="text-xl font-semibold mb-4">
+                        Visão Computacional & IA
+                      </h3>
+                      <div className="flex flex-wrap">
+                        <span className="skill-tag">YOLO</span>
+                        <span className="skill-tag">OpenCV</span>
+                        <span className="skill-tag">PyTorch</span>
+                        <span className="skill-tag">DeepFace</span>
+                        <span className="skill-tag">RetinaFace</span>
+                        <span className="skill-tag">CLIP</span>
+                      </div>
+                    </div>
+                    <div className="bg-white p-6 rounded-lg shadow-lg">
                       <Database className="text-green-500 mb-4 h-8 w-8" />
                       <h3 className="text-xl font-semibold mb-4">Backend</h3>
                       <div className="flex flex-wrap">
                         <span className="skill-tag">C# (ASP.NET)</span>
                         <span className="skill-tag">PHP</span>
+                        <span className="skill-tag">Laravel</span>
                         <span className="skill-tag">Node.js</span>
                         <span className="skill-tag">Typescript</span>
                         <span className="skill-tag">Python</span>
@@ -225,6 +240,20 @@ const App = () => {
                       </div>
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-lg">
+                      <Gamepad2 className="text-green-500 mb-4 h-8 w-8" />
+
+                      <h3 className="text-xl font-semibold mb-4">
+                        Game Development
+                      </h3>
+
+                      <div className="flex flex-wrap">
+                        <span className="skill-tag">Unity</span>
+                        <span className="skill-tag">C#</span>
+                        <span className="skill-tag">Godot</span>
+                        <span className="skill-tag">GDScript</span>
+                      </div>
+                    </div>
+                    <div className="bg-white p-6 rounded-lg shadow-lg">
                       <Server className="text-green-500 mb-4 h-8 w-8" />
                       <h3 className="text-xl font-semibold mb-4">Databases</h3>
                       <div className="flex flex-wrap">
@@ -232,8 +261,21 @@ const App = () => {
                         <span className="skill-tag">PostgreSQL</span>
                         <span className="skill-tag">Supabase</span>
                         <span className="skill-tag">Databricks</span>
-                        <span className="skill-tag">Docker</span>
                         <span className="skill-tag">Prisma</span>
+                      </div>
+                    </div>
+                    <div className="bg-white p-6 rounded-lg shadow-lg">
+                      <CloudCog className="text-green-500 mb-4 h-8 w-8" />
+                      <h3 className="text-xl font-semibold mb-4">
+                        Cloud, DevOps & Automação
+                      </h3>
+                      <div className="flex flex-wrap">
+                        <span className="skill-tag">Git</span>
+                        <span className="skill-tag">GitHub</span>
+                        <span className="skill-tag">Docker</span>
+                        <span className="skill-tag">CI/CD</span>
+                        <span className="skill-tag">RabbitMQ</span>
+                        <span className="skill-tag">Grafana</span>
                         <span className="skill-tag">n8n</span>
                       </div>
                     </div>
@@ -263,7 +305,7 @@ const App = () => {
                 {/* Overlay que aparece no hover */}
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 flex flex-col items-center justify-center p-4">
                   <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
-                  Finanças Pessoais
+                  FinoraBr
                   </h3>
                   <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300 text-center mt-2">
                   Web app para controle financeiro com registro de compras no débito e crédito, e dashboard para monitoramento de gastos mensais.
@@ -271,7 +313,7 @@ const App = () => {
                   </p>
                   <div className="flex gap-4 mt-4 opacity-0 group-hover:opacity-100 transition duration-300">
                     <a
-                      href="https://financas.rennan-alves.com/"
+                      href="https://finorabr.rennan-alves.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
@@ -279,7 +321,7 @@ const App = () => {
                       Acessar
                     </a>
                     <a
-                      href="https://github.com/rennan-dev/financas"
+                      href="https://github.com/rennan-dev/finora-br"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700"
