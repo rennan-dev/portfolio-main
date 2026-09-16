@@ -43,6 +43,6 @@ jobs:
           # Pasta local com o build gerado
           local-dir: codigo_fonte/dist/
           # Pasta de destino na Hostinger
-          server-dir: /
+          server-dir: public_html/
           # Remove no servidor arquivos que não existem mais no build
           dangerous-clean-slate: true
