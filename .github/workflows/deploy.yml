@@ -1,25 +1,27 @@
 name: Deploy para Hostinger (public_html)
 
-# Dispara automaticamente a cada push na branch main
-# e também permite disparar manualmente pela aba "Actions" do GitHub
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: deploy-frontend
+  cancel-in-progress: false
+
 jobs:
   deploy:
-    name: Build e deploy via FTPS
+    name: Build e Deploy (Hostinger)
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js 20
+      - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '22'
           cache: npm
           cache-dependency-path: codigo_fonte/package-lock.json
 
@@ -31,18 +33,25 @@ jobs:
         working-directory: codigo_fonte
         run: npm run build
 
+      - name: Verificar resultado do build
+        working-directory: codigo_fonte
+        run: |
+          if [ ! -f dist/index.html ]; then
+            echo "::error::dist/index.html não foi gerado."
+            exit 1
+          fi
+
+          echo "dist/index.html OK — pronto para deploy."
+
       - name: Deploy para public_html (FTPS)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          # Porta 21 = FTPS explícito (TLS). Padrão na Hostinger.
-          port: 21
+          server: ${{ secrets.HOSTINGER_FTP_HOST }}
+          username: ${{ secrets.HOSTINGER_FTP_USER }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_FTP_PORT || 21 }}
           protocol: ftps
-          # Pasta local com o build gerado
           local-dir: codigo_fonte/dist/
-          # Pasta de destino na Hostinger
-          server-dir: public_html/
-          # Remove no servidor arquivos que não existem mais no build
-          dangerous-clean-slate: true
+          server-dir: ${{ secrets.HOSTINGER_FTP_DIR || '/' }}
+          dangerous-clean-slate: false
+          dry-run: false
