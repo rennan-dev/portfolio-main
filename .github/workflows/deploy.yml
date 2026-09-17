@@ -1,4 +1,4 @@
-name: Deploy para Hostinger (public_html)
+name: Deploy para Hostinger (public_html) via SSH
 
 # Dispara automaticamente a cada push na branch main
 # e também permite disparar manualmente pela aba "Actions" do GitHub
@@ -7,9 +7,14 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Evita dois deploys simultaneos sobrescrevendo os mesmos arquivos
+concurrency:
+  group: deploy-portfolio
+  cancel-in-progress: false
+
 jobs:
   deploy:
-    name: Build e deploy via FTPS
+    name: Build e deploy via SSH (SCP)
     runs-on: ubuntu-latest
 
     steps:
@@ -31,18 +36,49 @@ jobs:
         working-directory: codigo_fonte
         run: npm run build
 
-      - name: Deploy para public_html (FTPS)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy para public_html via SSH (SCP)
+        # Copia o conteudo de codigo_fonte/dist/ para a pasta do site no
+        # servidor, limpando os arquivos antigos antes (rm: true).
+        uses: appleboy/scp-action@v1.0.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          # Porta 21 = FTPS explícito (TLS). Padrão na Hostinger.
-          port: 21
-          protocol: ftps
+          host: ${{ secrets.HOSTINGER_SSH_HOST }}
+          username: ${{ secrets.HOSTINGER_SSH_USER }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+          # Porta padrao da Hostinger compartilhada: 65002 (nao use 22)
+          port: ${{ secrets.HOSTINGER_SSH_PORT || 65002 }}
           # Pasta local com o build gerado
-          local-dir: codigo_fonte/dist/
-          # Pasta de destino na Hostinger
-          server-dir: ./
-          # Remove no servidor arquivos que não existem mais no build
-          dangerous-clean-slate: true
+          source: 'codigo_fonte/dist/*'
+          # Pasta de destino na Hostinger (absoluta, ex.:
+          # /home/u123456789/domains/seu-dominio.com/public_html)
+          target: ${{ secrets.HOSTINGER_DEPLOY_DIR }}
+          # Remove "codigo_fonte/dist/" do caminho ao copiar
+          strip_components: 2
+          # Limpa o destino antes de enviar (equivalente ao
+          # dangerous-clean-slate do FTP-Deploy-Action)
+          rm: true
+
+      - name: Verificar deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          HOSTINGER_DEPLOY_DIR: ${{ secrets.HOSTINGER_DEPLOY_DIR }}
+        with:
+          host: ${{ secrets.HOSTINGER_SSH_HOST }}
+          username: ${{ secrets.HOSTINGER_SSH_USER }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_SSH_PORT || 65002 }}
+          envs: HOSTINGER_DEPLOY_DIR
+          script: |
+            set -e
+
+            DEPLOY_DIR="$HOSTINGER_DEPLOY_DIR"
+
+            echo "==> Arquivos enviados em $DEPLOY_DIR:"
+            ls -lah "$DEPLOY_DIR"
+
+            if [ ! -f "$DEPLOY_DIR/index.html" ]; then
+                echo "::ERRO:: index.html não encontrado em $DEPLOY_DIR"
+                exit 1
+            fi
+
+            echo "OK: deploy concluído, index.html no lugar. $(date)"
+
